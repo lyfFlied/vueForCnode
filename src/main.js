@@ -3,18 +3,20 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+import store from './store'
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 import './assets/styles/index.scss'
 
-Vue.use(ElementUI)
-Vue.config.productionTip = false // 生产提示关闭
+Vue.use(ElementUI);
+Vue.config.productionTip = false; // 生产提示关闭
 // Vue.prototype.router = router;
 
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
   router,
+  store,
   template: '<App/>',
   components: {App}
-})
+});

@@ -19,4 +19,5 @@ export class Login {
       throw err
     })
   }
+  static logout
 }

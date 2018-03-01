@@ -10,6 +10,9 @@ export class LoginApi {
   static login(params) {
     return server.connection('POST', '/api/sessions', params);
   }
+  static logout(){
+    return server.connection('POST', '/api/logout')
+  }
 }
 
 /**
