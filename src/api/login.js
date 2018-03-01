@@ -16,8 +16,16 @@ export class Login {
     }).catch(err => {
       console.log('%c 身份被服务器拒绝[%s]', 'color:#52c41a', err);
       Store.logout();
-      throw err
+      return err
+    })
+  };
+
+  static logout = () => {
+    return LoginApi.logout(res => {
+      Store.logout();
+      return res
+    }).cache(err => {
+      return err
     })
   }
-  static logout
 }
