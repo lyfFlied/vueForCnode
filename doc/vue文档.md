@@ -1,8 +1,3 @@
----
-title: 介绍
-type: guide
-order: 2
----
 
 ## Vue.js 是什么
 
@@ -377,11 +372,6 @@ var app7 = new Vue({
 
 <div id="video-modal" class="modal"><div class="video-space" style="padding: 56.25% 0 0 0; position: relative;"></div></div>
 
----
-title: Vue 实例
-type: guide
-order: 3
----
 
 ## 创建一个 Vue 实例
 
@@ -532,11 +522,6 @@ new Vue({
 ![Vue 实例生命周期](/images/lifecycle.png)
 
 
----
-title: 模板语法
-type: guide
-order: 4
----
 
 Vue.js 使用了基于 HTML 的模板语法，允许开发者声明式地将 DOM 绑定至底层 Vue 实例的数据。所有 Vue.js 的模板都是合法的 HTML ，所以能被遵循规范的浏览器和 HTML 解析器解析。
 
@@ -697,12 +682,6 @@ Mustache 语法不能作用在 HTML 特性上，遇到这种情况应该使用 [
 ```
 
 它们看起来可能与普通的 HTML 略有不同，但 `:` 与 `@` 对于特性名来说都是合法字符，在所有支持 Vue.js 的浏览器都能被正确地解析。而且，它们不会出现在最终渲染的标记中。缩写语法是完全可选的，但随着你更深入地了解它们的作用，你会庆幸拥有它们。
-
----
-title: 计算属性和侦听器
-type: guide
-order: 5
----
 
 ## 计算属性
 
@@ -999,11 +978,6 @@ var watchExampleVM = new Vue({
 
 除了 `watch` 选项之外，您还可以使用命令式的 [vm.$watch API](../api/#vm-watch)。
 
----
-title: Class 与 Style 绑定
-type: guide
-order: 6
----
 
 操作元素的 class 列表和内联样式是数据绑定的一个常见需求。因为它们都是属性，所以我们可以用 `v-bind` 处理它们：只需要通过表达式计算出字符串结果即可。不过，字符串拼接麻烦且易错。因此，在将 `v-bind` 用于 `class` 和 `style` 时，Vue.js 做了专门的增强。表达式结果的类型除了字符串之外，还可以是对象或数组。
 
