@@ -1,0 +1,17 @@
+# Created by .ignore support plugin (hsz.mobi)
+/*
+!/src
+!/build
+!/config
+!/static
+!/.babelrc
+!/.gitignore
+!/package.json
+!/README.md
+!/doc
+!/gulpfile.babel.js
+!/index.pug
+!/.postcssrc.js
+!/debug.json
+!/.editorconfig
+!/yarn.lock
