@@ -13,7 +13,7 @@
 
 - 使用  
   - 安装依赖 
-  ```bash
+  ```
   npm install & yarn
   ```
   - 建议使用 yarn  安装地址 https://yarn.bootcss.com/docs/install.html
