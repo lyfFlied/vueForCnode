@@ -4,7 +4,7 @@
    
 - 项目需要用到的技术
      - [webpack](http://webpack.github.io/)
-     - [vue](https://vuejs.org/)
+     - [vue](https://cn.vuejs.org/v2/guide/index.html)
      - [vuex](https://vuex.vuejs.org/zh-cn/intro.html)
      - [scss](https://www.sass.hk/docs/)
      - [element-ui](http://element-cn.eleme.io/#/zh-CN/component/installation)
