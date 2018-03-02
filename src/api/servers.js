@@ -1,7 +1,7 @@
 import axios from 'axios'
 import qs from 'qs'
 import debug from '../../debug.json'
-import { Store } from './store'
+import user from '../store/user'
 
 export class BaseApi {
   host
@@ -19,7 +19,8 @@ export class BaseApi {
    */
   connection (method, url, body) {
     const headers = new Headers()
-    if (Store.isLogin()) headers.set('token', Store.getToken())
+    const {isLogin, token} = user.state.auth
+    if (isLogin) headers.set('token', token)
     headers.set('content-Type', 'application/x-www-form-urlencoded;charset=utf-8')
     if (method === 'GET' || method === 'HEAD') {
       url = url + '?' + qs.stringify(body)
