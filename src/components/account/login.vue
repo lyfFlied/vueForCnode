@@ -1,15 +1,15 @@
 <template>
   <div id="Login">
-    <headers></headers>
+    <Headers></Headers>
     <div id="login-s" class='login-wrap'>
       <div class="container">
         <div class="ms-title">
           <span>
-            <router-link to="/user/login" :style="[path == 'login' ? active : '']" class="user-login">登录</router-link>
+            <router-link to="/user/login" :style="[path === 'login' ? active : '']" class="user-login">登录</router-link>
           </span>
           <span class="this-span">·</span>
           <span>
-            <router-link to="/user/register" :style="[path == 'register' ? active : '']"
+            <router-link to="/user/register" :style="[path === 'register' ? active : '']"
                          class="user-login">注册</router-link>
           </span>
         </div>
@@ -22,7 +22,7 @@
               <el-input type="password" placeholder="请输入密码" v-model="params.password"></el-input>
             </el-form-item>
             <div class="login-btn">
-              <el-button class="btn-define" @click="submit('ruleForm')">登 录</el-button>
+              <el-button class="btn-define" @click="submit()">登 录</el-button>
             </div>
           </el-form>
         </div>

@@ -30,4 +30,4 @@
 
 - 分析
     - http://alexkuz.github.io/webpack-chart/
-    - http://webpack.github.io/analyse/
+    - http://webpack.github.io/analyse/。
