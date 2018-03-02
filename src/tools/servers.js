@@ -3,7 +3,6 @@ import qs from 'qs'
 import debug from '../../debug.json'
 import user from '../store/user'
 
-
 export class BaseApi {
   host
 
