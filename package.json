@@ -18,8 +18,8 @@
     "url": "https://git.singularitychina.com/frame-client/vue-client.git"
   },
   "lint-staged": {
-    "**.{js,vue}": [
-      "eslint --fix",
+    "src/**/*.{js,vue}": [
+      "eslint --ext",
       "git add"
     ]
   },
