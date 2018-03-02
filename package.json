@@ -6,7 +6,7 @@
   "scripts": {
     "start": "webpack-dev-server --inline --progress --config build/webpack.dev.babel.js",
     "build": "node build/build.js",
-    "clean": "gulp --gulpfile=gulpfile.babel.js clean",
+    "clean": "gulp --gulpfile=build/gulpfile.babel.js clean",
     "unit": "jest --config test/unit/jest.conf.js --coverage",
     "e2e": "node test/e2e/runner.js",
     "test": "npm run unit && npm run e2e",
