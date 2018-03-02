@@ -3,7 +3,7 @@
  */
 
 import Vue from 'vue'
-import { LoginApi } from '@/api/api'
+import { LoginApi } from '@/tools/api'
 import * as types from './user-types'
 
 const AUTH_TOKEN = 'auth.token'
