@@ -11,7 +11,7 @@ export class LoginApi {
     return server.connection('POST', '/api/sessions', params)
   }
 
-  static logout dgdgd() {
+  static logout () {
     return server.connection('POST', '/api/logout')
   }
 }
