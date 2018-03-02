@@ -136,6 +136,85 @@ new Vue({
 ```
 - style: 可接收对象，数组写法。注意千万别省略了style前面的`:`号
 
+###自定义指令
+```vue
+    <div id="app">
+        <strong v-red>红色文字</strong>
+        <strong v-red>红色文字2</strong>
+        <strong v-red>红色文字3</strong>
+        <input v-focus>
+    </div>
+```
+```vue
+        Vue.directive("red", function (el, tags) {
+            el.style.color = "red";
+            el.style.background = "green";
+        });
+        Vue.directive('focus', {
+          inserted: function (el) {
+            el.focus()
+          }
+        })
+```
+- directive：注册指令入口。本例展示了全局注册指令的方式，只要节点绑定了对应的指令，就会执行指令的方法
+```vue
+    new Vue({
+        el: "#app",
+        data: {},
+        directives: {
+            focus: {
+                inserted: function (el,binding,vnode,oldVnode) {
+                  el.focus();
+                }
+            }
+        }
+    });
+```
+- directive：注册指令入口。本例属于局部注册，只能在当前实例当中注册
+    - focus：指令名称
+        - inserted：指令方法
+
+###组件
+```vue
+<div id="app">
+    <p>父级：{{str}}</p>
+    <child-com :msg="str"></child-com>
+    <child-com :msg="number"></child-com>
+</div>
+<template id="child">
+    <div>
+        <p>我是子组件对象</p>
+        <input type="button" value="按钮" @click="change()"/>
+        <strong>{{msg}}</strong>
+    </div>
+</template>
+```
+```vue
+new Vue({
+    el:"#app",
+    data:{
+        str:"我是父组件对象"
+    },
+    components:{
+        "child-com":{
+            template:"#child",
+            props:['msg'],
+            methods:{
+                change(){
+                    this.msg = "子对象里面的内容被改变了"
+                }
+            }
+        }
+    }
+})
+```
+- 将公共需要复用的模块抽离出来，作为一个公共模块，供各个组件/对象调用
+- components: 定义子组件。
+    - template：子组件模板
+    - props：父组件传入的值，
+    - methods: 子组件执行的方法
+
+
 
 
 
