@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+import home from './home'
 
 Vue.use(Router)
 
@@ -17,18 +18,7 @@ const router = new Router({
       path: '/',
       component: () => import('../view/home/index'),
       children: [
-        {
-          path: '/',
-          component: () => import('../view/home/home')
-        },
-        {
-          path: '/payment',
-          component: () => import('../view/home/payment')
-        },
-        {
-          path: '/about',
-          component: () => import('../view/home/about')
-        }
+        ...home
       ]
     }
   ]
