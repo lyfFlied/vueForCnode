@@ -4,7 +4,6 @@
 !/build
 !/config
 !/test
-!/static
 !/.babelrc
 !/.gitignore
 !/package.json
