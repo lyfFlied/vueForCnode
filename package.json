@@ -2,7 +2,6 @@
   "name": "vue-client",
   "version": "1.0.0",
   "description": "vue-client",
-  "author": "modan <1072110269@qq.com>",
   "private": true,
   "scripts": {
     "start": "webpack-dev-server --inline --progress --config build/webpack.dev.babel.js",
@@ -13,6 +12,18 @@
     "test": "npm run unit && npm run e2e",
     "lint": "eslint --ext .js,.vue src test/unit test/e2e/specs"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://git.singularitychina.com/frame-client/vue-client.git"
+  },
+  "lint-staged": {
+    "src/**/*.vue": [
+      "eslint --fix",
+      "git add"
+    ]
+  },
+  "author": "modan <1072110269@qq.com>",
+  "license": "UNLICENSED",
   "dependencies": {
     "axios": "^0.18.0",
     "element-ui": "^2.2.0",
