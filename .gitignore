@@ -3,6 +3,7 @@
 !/src
 !/build
 !/config
+!/test
 !/static
 !/.babelrc
 !/.gitignore
@@ -16,3 +17,5 @@
 !/.editorconfig
 !/yarn.lock
 !/.npmrc
+!/.eslintignore
+!/.eslintrc.js

@@ -32,56 +32,56 @@
 </template>
 
 <script>
-  import Headers from '../common/Headers';
-  import {Login} from '@/api/login'
-  import './login.scss'
+import Headers from '../common/Headers'
+import { Login } from '@/api/login'
+import './login.scss'
 
-  export default {
-    name: 'Login',
-    components: {
-      Headers
-    },
-    data() {
-      return {
-        params: {
-          login: '',
-          password: '',
-        },
-        active: {
-          'color': '#00b5ad',
-          'font-weight': 'bold',
-          'border-bottom': '3px solid #00b5ad',
-        },
-        path: this.$route.path.split("/")[2],
-      };
-    },
-    beforecreate: {
-      // todo 判断是否有保存登录信息，如果有，则取出并赋值到对应的位置
-    },
-    methods: {
-      submit() {
-        if (this.params.login || this.params.password) {
-          const {login, password} = this.params;
-          Login.login({login: "15223719447", password: '12345678', type: 0, remember: true}).then(res => {
-            this.$message.success('登陆成功');
-            this.$router.push('/')
-          }).catch(err => {
-            this.$message.error(err);
-          })
-        }
+export default {
+  name: 'Login',
+  components: {
+    Headers
+  },
+  data () {
+    return {
+      params: {
+        login: '',
+        password: ''
       },
-      successWatcher(val, oldVal) {
-        if (val && !oldVal) {
-          const redirectUrl = this.$route.query.redirect_url || '/';
-          this.$router.push(redirectUrl);
-        }
+      active: {
+        'color': '#00b5ad',
+        'font-weight': 'bold',
+        'border-bottom': '3px solid #00b5ad'
       },
+      path: this.$route.path.split('/')[2]
+    }
+  },
+  beforecreate: {
+    // todo 判断是否有保存登录信息，如果有，则取出并赋值到对应的位置
+  },
+  methods: {
+    submit () {
+      if (this.params.login || this.params.password) {
+        // const {login, password} = this.params;
+        Login.login({login: '15223719447', password: '12345678', type: 0, remember: true}).then(res => {
+          this.$message.success('登陆成功')
+          this.$router.push('/')
+        }).catch(err => {
+          this.$message.error(err)
+        })
+      }
     },
-    watch: {
-      success: 'successWatcher',
-      $route(to, from) {
-        this.path = this.$route.path.split("/")[2];
+    successWatcher (val, oldVal) {
+      if (val && !oldVal) {
+        const redirectUrl = this.$route.query.redirect_url || '/'
+        this.$router.push(redirectUrl)
       }
     }
+  },
+  watch: {
+    success: 'successWatcher',
+    $route (to, from) {
+      this.path = this.$route.path.split('/')[2]
+    }
   }
+}
 </script>

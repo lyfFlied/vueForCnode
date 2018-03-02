@@ -1,12 +1,12 @@
 import axios from 'axios'
 import qs from 'qs'
 import debug from '../../debug.json'
-import {Store} from './store'
+import { Store } from './store'
 
 export class BaseApi {
-  host;
+  host
 
-  constructor(host) {
+  constructor (host) {
     this.host = host
   }
 
@@ -17,10 +17,10 @@ export class BaseApi {
    * @param body
    * @returns {Promise<any>}
    */
-  connection(method, url, body) {
-    const headers = new Headers();
-    if (Store.isLogin()) headers.set('token', Store.getToken());
-    headers.set('content-Type', 'application/x-www-form-urlencoded;charset=utf-8');
+  connection (method, url, body) {
+    const headers = new Headers()
+    if (Store.isLogin()) headers.set('token', Store.getToken())
+    headers.set('content-Type', 'application/x-www-form-urlencoded;charset=utf-8')
     if (method === 'GET' || method === 'HEAD') {
       url = url + '?' + qs.stringify(body)
     } else {
@@ -36,13 +36,13 @@ export class BaseApi {
         try {
           switch (res.status) {
             case 401:
-              return {success: false, msg: '系统好像不认识你！'};
+              return {success: false, msg: '系统好像不认识你！'}
             case 403:
-              return {success: false, msg: '你没有权限访问此功能！'};
+              return {success: false, msg: '你没有权限访问此功能！'}
             case 400:
-              return {success: false, msg: '你没有权限访问此功能！'};
+              return {success: false, msg: '你没有权限访问此功能！'}
             case 404:
-              return {success: false, msg: '网络繁忙，请稍后重试！'};
+              return {success: false, msg: '网络繁忙，请稍后重试！'}
             default:
               return {success: true, msg: '', data: res.data}
           }
@@ -56,10 +56,10 @@ export class BaseApi {
           reject(value.msg)
         }
       }).catch(err => {
-        reject('网络繁忙，请稍后重试！')
-      });
+        return '网络繁忙，请稍后重试！' + err
+      })
     })
   }
 }
 
-export const server = new BaseApi(debug.servers);
+export const server = new BaseApi(debug.servers)

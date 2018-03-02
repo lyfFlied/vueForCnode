@@ -1,16 +1,17 @@
 /**
  * 项目api
  */
-import {server} from "./servers";
+import { server } from './servers'
 
 /**
  * 登陆
  */
 export class LoginApi {
-  static login(params) {
-    return server.connection('POST', '/api/sessions', params);
+  static login (params) {
+    return server.connection('POST', '/api/sessions', params)
   }
-  static logout(){
+
+  static logout() {
     return server.connection('POST', '/api/logout')
   }
 }

@@ -3,7 +3,7 @@
 // see http://vuejs-templates.github.io/webpack for documentation.
 
 const path = require('path')
-const config = require('../debug.json')
+const debug = require('../debug.json')
 
 module.exports = {
   dev: {
@@ -14,13 +14,20 @@ module.exports = {
     proxyTable: {},
 
     // Various Dev Server settings
-    host: config.dev.host, // can be overwritten by process.env.HOST
-    port: config.dev.port, // can be overwritten by process.env.PORT, if port is in use, a free one will be determined
+    host: debug.dev.host, // can be overwritten by process.env.HOST
+    port: debug.dev.port, // can be overwritten by process.env.PORT, if port is in use, a free one will be determined
     autoOpenBrowser: false,
     errorOverlay: true,
     notifyOnErrors: true,
     poll: false, // https://webpack.js.org/configuration/dev-server/#devserver-watchoptions-
 
+    // Use Eslint Loader?
+    // If true, your code will be linted during bundling and
+    // linting errors and warnings will be shown in the console.
+    useEslint: true,
+    // If true, eslint errors and warnings will also be shown in the error overlay
+    // in the browser.
+    showEslintErrorsInOverlay: false,
 
     /**
      * Source Maps

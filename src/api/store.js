@@ -3,23 +3,23 @@
  */
 export class Store {
   /** 保存登录状态 */
-  static login() {
+  static login () {
     sessionStorage.setItem('isLogin', 'true')
   }
 
   /** 清除登录状态 */
-  static logout() {
-    sessionStorage.removeItem('isLogin');
+  static logout () {
+    sessionStorage.removeItem('isLogin')
     sessionStorage.removeItem('user')
   }
 
   /** 是否登录 */
-  static isLogin() {
+  static isLogin () {
     return sessionStorage.getItem('isLogin')
   }
 
   /** 返回token */
-  static getToken() {
+  static getToken () {
     return sessionStorage.getItem('user').token
   }
 
@@ -27,8 +27,8 @@ export class Store {
    * 保存用户登录信息
    * @param parms
    */
-  static saveUser(parms) {
-    sessionStorage.setItem('user', JSON.stringify(parms));
+  static saveUser (parms) {
+    sessionStorage.setItem('user', JSON.stringify(parms))
     this.login()
   }
 
@@ -38,10 +38,10 @@ export class Store {
    * encodeURIComponent 编码
    * decodeURIComponent 解码
    */
-  static saveRemember(parms) {
+  static saveRemember (parms) {
     /** 把[ 密码 ]进行编码 */
-    parms.password = encodeURIComponent(parms.password);
-    const pwd = sessionStorage.setItem('pwd', parms)
+    parms.password = encodeURIComponent(parms.password)
+    // const pwd = sessionStorage.setItem('pwd', parms)
     // todo 存储用户的账户密码
     // if (this.userList.find(item => item.login === parms.login)) {
     //   const {login, password} = parms

@@ -6,16 +6,15 @@
   </div>
 </template>
 
-
 <script>
-  import Headers from './Headers';
-  import Footers from './Footers';
+import Headers from './Headers'
+import Footers from './Footers'
 
-  export default {
-    name: "common",
-    components: {
-      Headers,
-      Footers
-    }
+export default {
+  name: 'common',
+  components: {
+    Headers,
+    Footers
   }
+}
 </script>
