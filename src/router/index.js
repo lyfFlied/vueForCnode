@@ -7,27 +7,27 @@ const router = new Router({
   routes: [
     {
       path: '/user/login',
-      component: () => import('../components/account/login')
+      component: () => import('../view/login/login')
     },
     {
       path: '/user/register',
-      component: () => import('../components/account/reg')
+      component: () => import('../view/login/reg')
     },
     {
       path: '/',
-      component: () => import('../components/common/common'),
+      component: () => import('../view/home/index'),
       children: [
         {
           path: '/',
-          component: () => import('../components/article/index')
+          component: () => import('../view/home/home')
         },
         {
           path: '/payment',
-          component: () => import('../components/other/payment')
+          component: () => import('../view/home/payment')
         },
         {
           path: '/about',
-          component: () => import('../components/other/about')
+          component: () => import('../view/home/about')
         }
       ]
     }

@@ -17,13 +17,13 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.about {
-  color: #555;
-  line-height: 30px;
-  .first {
-    text-align: center;
-    font-size: 25px;
-    padding: 40px 0 40px;
+  .about {
+    color: #555;
+    line-height: 30px;
+    .first {
+      text-align: center;
+      font-size: 25px;
+      padding: 40px 0 40px;
+    }
   }
-}
 </style>
