@@ -41,7 +41,10 @@ module.exports = {
     // https://vue-loader.vuejs.org/en/options.html#cachebusting
     cacheBusting: true,
 
-    cssSourceMap: true
+    cssSourceMap: true,
+
+    // Set to `true` or `false` to always turn it on or off
+    bundleAnalyzerReport: false
   },
 
   build: {
