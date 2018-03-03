@@ -1,14 +1,14 @@
 'use strict'
-import utils from './utils'
-import webpack from 'webpack'
-import config from '../config'
-import merge from 'webpack-merge'
-import path from 'path'
-import baseWebpackConfig from './webpack.base.babel'
-import CopyWebpackPlugin from 'copy-webpack-plugin'
-import HtmlWebpackPlugin from 'html-webpack-plugin'
-import FriendlyErrorsPlugin from 'friendly-errors-webpack-plugin'
-import portfinder from 'portfinder'
+const utils = require('./utils')
+const webpack = require('webpack')
+const config = require('../config')
+const merge = require('webpack-merge')
+const path = require('path')
+const baseWebpackConfig = require('./webpack.base.conf')
+const CopyWebpackPlugin = require('copy-webpack-plugin')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin')
+const portfinder = require('portfinder')
 
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
