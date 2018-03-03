@@ -21,7 +21,6 @@ Vue.use(Button)
 Vue.config.productionTip = false // 生产提示关闭
 // Vue.prototype.router = router;
 
-/* eslint-disable no-new */
 new Vue({
   el: '#app',
   router,
