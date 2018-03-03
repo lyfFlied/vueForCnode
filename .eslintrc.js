@@ -9,6 +9,7 @@ module.exports = {
     browser: true,
   },
   extends: [
+    'eslint:recommended',
     'plugin:vue/essential',
     'standard'
   ],
@@ -29,7 +30,7 @@ module.exports = {
     'guard-for-in': 0,
     'no-invalid-this': 0,
     'max-len': [
-      'error',
+      'warn',
       140
     ]
   }

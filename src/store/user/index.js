@@ -37,7 +37,7 @@ export default {
       window.sessionStorage.setItem(AUTH_USER, JSON.stringify(data.staffs[0]))
       window.sessionStorage.setItem(IS_LOGIN, true)
     },
-    ACCOUNT_LOGOUT_FAILURE: (state) => {
+    ACCOUNT_LOGOUT_FAILURE: (state)  => {
       Vue.set(state.auth, 'accountPwd', null)
       Vue.set(state.auth, 'token', null)
       Vue.set(state.auth, 'user', null)
