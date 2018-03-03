@@ -18,8 +18,9 @@ export class BaseApi {
    * @returns {Promise<any>}
    */
   connection (method, url, body) {
-    const headers = new Headers()
+    if (typeof body !== 'object') body = {}
     const {isLogin, token} = user.state.auth
+    const headers = new Headers()
     if (isLogin) headers.set('token', token)
     headers.set('content-Type', 'application/x-www-form-urlencoded;charset=utf-8')
     if (method === 'GET' || method === 'HEAD') {
@@ -27,13 +28,20 @@ export class BaseApi {
     } else {
       body = qs.stringify(body)
     }
+    const _option = {
+      method,
+      url,
+      baseURL: this.host,
+      timeout: 30000,
+      data: body,
+      headers,
+      withCredentials: true,
+      validateStatus: (status) => {
+        return status >= 200 && status < 300
+      },
+    }
     return new Promise((resolve, reject) => {
-      axios({
-        method,
-        url: `${this.host}${url}`,
-        headers: headers,
-        data: body
-      }).then(res => {
+      axios.request(_option).then(res => {
         try {
           switch (res.status) {
             case 401:
