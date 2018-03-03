@@ -61,13 +61,13 @@ const devWebpackConfig = merge(baseWebpackConfig, {
       title: 'vue-client',
       favicon: path.resolve(__dirname, '../src/assets/images/logo.png'),
     }),
-    new CopyWebpackPlugin([
-      {
-        from: path.resolve(__dirname, '../static'),
-        to: config.dev.assetsSubDirectory,
-        ignore: ['.*']
-      }
-    ])
+    // new CopyWebpackPlugin([
+    //   {
+    //     from: path.resolve(__dirname, '../static'),
+    //     to: config.dev.assetsSubDirectory,
+    //     ignore: ['.*']
+    //   }
+    // ])
   ]
 })
 

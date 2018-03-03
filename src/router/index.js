@@ -18,7 +18,7 @@ const router = new Router({
       path: '/',
       component: () => import('../view/home/index'),
       children: [
-        ...home
+        ...home,
       ]
     }
   ]
