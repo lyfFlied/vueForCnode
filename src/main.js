@@ -8,7 +8,7 @@ import { Row, Col, DatePicker, Form, FormItem, Input, Button } from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 import './assets/styles/index.scss'
 
-Vue.prototype.$ELEMENT = {size: 'mini'}
+Vue.prototype.$ELEMENT = {size: 'mini'};
 
 Vue.use(Row)
 Vue.use(Col)

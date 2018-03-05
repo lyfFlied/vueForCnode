@@ -16,5 +16,4 @@
 !/yarn.lock
 !/.npmrc
 !/.eslintignore
-!/.eslintrc.js
-src/packages/ui/
+!/.eslintrc.yml
