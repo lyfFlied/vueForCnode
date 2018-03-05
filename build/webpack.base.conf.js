@@ -36,6 +36,7 @@ module.exports = {
     alias: {
       'vue$': 'vue/dist/vue.esm.js',
       '@': resolve('src'),
+      'pkgs': resolve('src/packages'),
     }
   },
   module: {
@@ -54,7 +55,7 @@ module.exports = {
       {
         test: /\.s[ac]ss$/,
         loader: 'style-loader!css-loader!sass-loader',
-        include: resolve(__dirname,'src')
+        include: resolve(__dirname, 'src')
       },
       {
         test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,

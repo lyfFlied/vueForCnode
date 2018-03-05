@@ -32,7 +32,7 @@
 </template>
 
 <script>
-import Headers from '@/packages/components/common/Headers'
+import Headers from '@/packages/ui/Headers'
 import { mapState } from 'vuex'
 import './login.scss'
 

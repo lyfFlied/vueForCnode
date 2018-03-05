@@ -38,7 +38,7 @@
 </template>
 
 <script>
-import Headers from '@/packages/components/common/Headers'
+import Headers from '@/packages/ui/Headers'
 import './reg.scss'
 
 export default {

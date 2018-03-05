@@ -1,55 +1,19 @@
 <template>
   <div id="load-index">
-    <el-row :gutter="25" style="margin-left: 0; margin-right: 0">
-      <el-col :span="10" :offset="5">
-        <h1>{{name}}</h1>
-      </el-col>
-      <el-date-picker
-        v-model="value1"
-        type="datetime"
-        placeholder="选择日期时间">
-      </el-date-picker>
-    </el-row>
-    <el-row :gutter="25" style="margin-left: 0; margin-right: 0">
-      <Table
-        :tableData="tableData"
-        :tableHeader="tableHeader"
-        :tableAttr="tableAttr"
-        :pagination="pagination"
-      />
-    </el-row>
-    <el-row :gutter="25" style="margin-left: 0; margin-right: 0">
-      <Form
-        :formList="formList"
-      />
-    </el-row>
+    <Teble
+      :tableData="tableData"
+      :tableHeader="tableHeader"
+      :tableAttr="tableAttr"
+    />
   </div>
 </template>
 
 <script>
-import Form from 'pkgs/components/form'
-import Table from 'pkgs/components/table'
+import Teble from './'
 
 export default {
   data () {
     return {
-      name: '文章',
-      value1: '',
-      pagination: {
-        total: 30,
-        pagShow: true
-      },
-      formList: [
-        {
-          name: '姓名',
-          pass: 'username',
-          render: () => `<el-input></el-input>`,
-          elementName: 'el-input',
-          elementProps: {
-            type: 'password'
-          }
-        }
-      ],
       tableAttr: {
       },
       tableHeader: [
@@ -75,8 +39,7 @@ export default {
     }
   },
   components: {
-    Form,
-    Table
+    Teble,
   },
   mounted () {
     this.getTableData()
@@ -110,9 +73,3 @@ export default {
   }
 }
 </script>
-
-<style lang="scss" scoped>
-  .content-body {
-    margin-top: 30px;
-  }
-</style>

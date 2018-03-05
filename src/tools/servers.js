@@ -4,7 +4,7 @@ import debug from '../../debug.json'
 import user from '../store/user'
 
 export class BaseApi {
-  host
+  host;
 
   constructor (host) {
     this.host = host
@@ -17,13 +17,14 @@ export class BaseApi {
    * @param body
    * @returns {Promise<any>}
    */
-  connection (method, url, body) {
+  connection (method = 'GET', url, body) {
     if (typeof body !== 'object') body = {}
     const {isLogin, token} = user.state.auth
     const headers = new Headers()
+    method = method.toLocaleLowerCase()
     if (isLogin) headers.set('token', token)
     headers.set('content-Type', 'application/x-www-form-urlencoded;charset=utf-8')
-    if (method === 'GET' || method === 'HEAD') {
+    if (method === 'get' || method === 'head') {
       url = url + '?' + qs.stringify(body)
     } else {
       body = qs.stringify(body)
@@ -35,10 +36,6 @@ export class BaseApi {
       timeout: 30000,
       data: body,
       headers,
-      withCredentials: true,
-      validateStatus: (status) => {
-        return status >= 200 && status < 300
-      },
     }
     return new Promise((resolve, reject) => {
       axios.request(_option).then(res => {
