@@ -36,6 +36,7 @@ export class BaseApi {
       timeout: 30000,
       data: body,
       headers,
+      withCredentials: true
     }
     return new Promise((resolve, reject) => {
       axios.request(_option).then(res => {
