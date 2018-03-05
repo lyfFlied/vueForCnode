@@ -45,13 +45,13 @@ export class BaseApi {
         try {
           switch (res.status) {
             case 401:
-              return {success: false, msg: '系统好像不认识你！'}
+              return {success: false, msg: '系统好像不认识你！', data: ''}
             case 403:
-              return {success: false, msg: '你没有权限访问此功能！'}
+              return {success: false, msg: '你没有权限访问此功能！', data: ''}
             case 400:
-              return {success: false, msg: '你没有权限访问此功能！'}
+              return {success: false, msg: '你没有权限访问此功能！', data: ''}
             case 404:
-              return {success: false, msg: '网络繁忙，请稍后重试！'}
+              return {success: false, msg: '网络繁忙，请稍后重试！', data: ''}
             default:
               return {success: true, msg: '', data: res.data}
           }
