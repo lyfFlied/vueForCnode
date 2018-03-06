@@ -4,14 +4,14 @@
              class="demo-ruleForm login-container">
       <h3 class="title">系统登录</h3>
       <el-form-item prop="login">
-        <el-input type="text" v-model="ruleForm.login" auto-complete="off" placeholder="账号"></el-input>
+        <el-input type="text" v-model="ruleForm.login" auto-complete="off" placeholder="账号"/>
       </el-form-item>
       <el-form-item prop="password">
-        <el-input type="password" v-model="ruleForm.password" auto-complete="off" placeholder="密码"></el-input>
+        <el-input type="password" v-model="ruleForm.password" auto-complete="off" placeholder="密码"/>
       </el-form-item>
       <el-form-item label="">
         <el-checkbox-group v-model="ruleForm.remember" style="text-align: left">
-          <el-checkbox label="记住账号" name="type"></el-checkbox>
+          <el-checkbox label="记住账号" name="type"/>
         </el-checkbox-group>
       </el-form-item>
       <el-form-item>
@@ -61,8 +61,8 @@
       submitForm(formName) {
         this.$refs[formName].validate((valid) => {
           if (valid) {
-            this.loading = true
-            console.log(this.ruleForm)
+            this.loading = true;
+            console.log(this.ruleForm);
             this.$store.dispatch('accountLoginSubmit', {
               login: '15223719447',
               password: '12345678',
@@ -73,15 +73,15 @@
           }
         })
       },
-      successWatcher(val, oldVal) {
-        this.loading = false
+      successWatcher(val) {
+        this.loading = false;
         val && this.$router.push(this.$route.query.redirect_url || '/')
       }
     },
     /** 监听函数 */
     watch: {
       isLogin: 'successWatcher',
-      $route(to, from) {
+      $route() {
         this.path = this.$route.path.split('/')[2]
       }
     }

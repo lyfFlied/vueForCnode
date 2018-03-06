@@ -30,6 +30,7 @@
     no-invalid-this: 0
     space-before-function-paren: 0
     indent: 0
+    semi: 0
     max-len: [
       1,
       140
