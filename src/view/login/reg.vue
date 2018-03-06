@@ -1,31 +1,31 @@
 <template>
   <div>
-    <headers></headers>
+    <headers/>
     <div id="register" class='login-wrap'>
       <div class="container">
         <div class="ms-title">
           <span>
-            <router-link to="/user/login" :style="[path == 'login' ? active : '']" class="user-login">登录</router-link>
+            <router-link to="/user/login" :style="[path === 'login' ? active : '']" class="user-login">登录</router-link>
           </span>
           <span class="this-span">·</span>
           <span>
-            <router-link to="/user/register" :style="[path == 'register' ? active : '']"
+            <router-link to="/user/register" :style="[path === 'register' ? active : '']"
                          class="user-login">注册</router-link>
           </span>
         </div>
         <div class="ms-login">
           <el-form ref="params" :model="params" label-width="82px">
             <el-form-item label="用户名：" prop="name">
-              <el-input v-model="params.name" placeholder="至少4个字符"></el-input>
+              <el-input v-model="params.name" placeholder="至少4个字符"/>
             </el-form-item>
             <el-form-item label="邮箱：" prop="email">
-              <el-input v-model="params.email" placeholder="请填写真实邮箱"></el-input>
+              <el-input v-model="params.email" placeholder="请填写真实邮箱"/>
             </el-form-item>
             <el-form-item prop="password" label="密码：">
-              <el-input type="password" placeholder="至少6个字符" v-model="params.password"></el-input>
+              <el-input type="password" placeholder="至少6个字符" v-model="params.password"/>
             </el-form-item>
             <el-form-item prop="password_confirmation" label="确认密码：">
-              <el-input type="password" placeholder="请再次输入密码" v-model="params.password_confirmation"></el-input>
+              <el-input type="password" placeholder="请再次输入密码" v-model="params.password_confirmation"/>
             </el-form-item>
             <div class="login-btn">
               <el-button class="btn-define" @click="submit()">注 册</el-button>
@@ -38,7 +38,7 @@
 </template>
 
 <script>
-  import Headers from '@/packages/ui/Headers'
+  import Headers from '../../packages/ui/Headers'
   import './reg.scss'
   export default {
     name: 'register',
@@ -78,7 +78,7 @@
     },
     watch: {
       success: 'successWatcher',
-      $route(to, from) {
+      $route() {
         this.path = this.$route.path.split('/')[2]
       }
     }
