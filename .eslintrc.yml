@@ -28,7 +28,8 @@
     dot-location: 1
     guard-for-in: 0
     no-invalid-this: 0
-    space-before-function-paren: 2
+    space-before-function-paren: 0
+    indent: 0
     max-len: [
       1,
       140

@@ -38,50 +38,49 @@
 </template>
 
 <script>
-import Headers from '@/packages/ui/Headers'
-import './reg.scss'
-
-export default {
-  name: 'register',
-  components: {
-    Headers
-  },
-  data () {
-    return {
-      params: {
-        name: '',
-        email: '',
-        password: '',
-        password_confirmation: ''
-      },
-      active: {
-        'color': '#00b5ad',
-        'font-weight': 'bold',
-        'border-bottom': '3px solid #00b5ad'
-      },
-      path: this.$route.path.split('/')[2]
-    }
-  },
-  methods: {
-    submit () {
-      // todo
+  import Headers from '@/packages/ui/Headers'
+  import './reg.scss'
+  export default {
+    name: 'register',
+    components: {
+      Headers
     },
-    successWatcher (val, oldVal) {
-      // todo
+    data() {
+      return {
+        params: {
+          name: '',
+          email: '',
+          password: '',
+          password_confirmation: ''
+        },
+        active: {
+          'color': '#00b5ad',
+          'font-weight': 'bold',
+          'border-bottom': '3px solid #00b5ad'
+        },
+        path: this.$route.path.split('/')[2]
+      }
     },
-    message () {
-      this.$notify.success({
-        title: '注册成功',
-        message: '请先到前往邮箱激活账号',
-        offset: 100
-      })
-    }
-  },
-  watch: {
-    success: 'successWatcher',
-    $route (to, from) {
-      this.path = this.$route.path.split('/')[2]
+    methods: {
+      submit() {
+        // todo
+      },
+      successWatcher(val, oldVal) {
+        // todo
+      },
+      message() {
+        this.$notify.success({
+          title: '注册成功',
+          message: '请先到前往邮箱激活账号',
+          offset: 100
+        })
+      }
+    },
+    watch: {
+      success: 'successWatcher',
+      $route(to, from) {
+        this.path = this.$route.path.split('/')[2]
+      }
     }
   }
-}
 </script>

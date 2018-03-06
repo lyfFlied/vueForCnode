@@ -10,6 +10,12 @@ import './assets/styles/index.scss'
 
 Vue.use(ElementUI, { size: 'small' })
 
+/** 测试代码 */
+Vue.filter('capitalize', function (value) {
+  if (!value) return '100%'
+  return isNaN(value) ? value : value + 'px'
+})
+
 Vue.config.productionTip = false // 生产提示关闭
 // Vue.prototype.router = router;
 

@@ -6,22 +6,20 @@
 </template>
 
 <script>
-export default {
-
-}
+  export default {}
 </script>
 
 <style lang="scss" scoped>
-.payment {
-  color: #555;
-  line-height: 30px;
-  text-align: center;
-  img {
-    width: 25%;
+  .payment {
+    color: #555;
+    line-height: 30px;
+    text-align: center;
+    img {
+      width: 25%;
+    }
+    .first {
+      font-size: 25px;
+      padding: 40px 0 10px;
+    }
   }
-  .first {
-    font-size: 25px;
-    padding: 40px 0 10px;
-  }
-}
 </style>

@@ -25,7 +25,7 @@ export default {
     }
   },
   mutations: {
-    ACCOUNT_AUTH_STATUS_CHANGED (state, data) {
+    ACCOUNT_AUTH_STATUS_CHANGED(state, data) {
       if (data.params.remember) {
         Vue.set(state.auth, 'accountPwd', data.params)
         window.sessionStorage.setItem(ACCOUNT_PWD, JSON.stringify(data.params))
@@ -37,7 +37,7 @@ export default {
       window.sessionStorage.setItem(AUTH_USER, JSON.stringify(data.staffs[0]))
       window.sessionStorage.setItem(IS_LOGIN, true)
     },
-    ACCOUNT_LOGOUT_FAILURE (state) {
+    ACCOUNT_LOGOUT_FAILURE(state) {
       Vue.set(state.auth, 'accountPwd', null)
       Vue.set(state.auth, 'token', null)
       Vue.set(state.auth, 'user', null)
@@ -49,14 +49,14 @@ export default {
     },
   },
   actions: {
-    accountLoginSubmit ({commit}, params) {
+    accountLoginSubmit({commit}, params) {
       LoginApi.login(params).then((res) => {
         commit(types.ACCOUNT_AUTH_STATUS_CHANGED, {...res, params})
       }).catch(() => {
         commit(types.ACCOUNT_LOGOUT_FAILURE)
       })
     },
-    accountLogoutSubmit ({commit}) {
+    accountLogoutSubmit({commit}) {
       LoginApi.logout().then(res => {
         commit(types.ACCOUNT_LOGOUT_FAILURE)
       })

@@ -32,57 +32,54 @@
 </template>
 
 <script>
-import Headers from '@/packages/ui/Headers'
-import { mapState } from 'vuex'
-import './login.scss'
+  import Headers from '@/packages/ui/Headers'
+  import {mapState} from 'vuex'
+  import './login.scss'
 
-export default {
-  name: 'Login',
-  components: {
-    Headers
-  },
-  data () {
-    return {
-      params: {
-        login: '',
-        password: '',
-      },
-      active: {
-        'color': '#00b5ad',
-        'font-weight': 'bold',
-        'border-bottom': '3px solid #00b5ad',
-      },
-      path: this.$route.path.split('/')[2],
-    }
-  },
-  computed: mapState({
-    isLogin: state => state.user.auth.isLogin,
-    user: state => state.user.auth.user
-  }),
-  beforecreate: {
-    // todo 判断是否有保存登录信息，如果有，则取出并赋值到对应的位置
-  },
-  methods: {
-    submit () {
-      this.$store.dispatch('accountLoginSubmit', {
-        login: '15223719447',
-        password: '12345678',
-        type: 0,
-        remember: true
-      })
+  export default {
+    name: 'Login',
+    components: {
+      Headers
     },
-    successWatcher (val, oldVal) {
-      if (val) {
-        const redirectUrl = this.$route.query.redirect_url || '/'
-        this.$router.push(redirectUrl)
+    data() {
+      return {
+        params: {
+          login: '',
+          password: '',
+        },
+        active: {
+          'color': '#00b5ad',
+          'font-weight': 'bold',
+          'border-bottom': '3px solid #00b5ad',
+        },
+        path: this.$route.path.split('/')[2],
+      }
+    },
+    computed: mapState({
+      isLogin: state => state.user.auth.isLogin,
+      user: state => state.user.auth.user
+    }),
+    beforecreate: {
+      // todo 判断是否有保存登录信息，如果有，则取出并赋值到对应的位置
+    },
+    methods: {
+      submit() {
+        this.$store.dispatch('accountLoginSubmit', {
+          login: '15223719447',
+          password: '12345678',
+          type: 0,
+          remember: true
+        })
+      },
+      successWatcher(val, oldVal) {
+        val && this.$router.push(this.$route.query.redirect_url || '/')
+      }
+    },
+    watch: {
+      isLogin: 'successWatcher',
+      $route(to, from) {
+        this.path = this.$route.path.split('/')[2]
       }
     }
-  },
-  watch: {
-    isLogin: 'successWatcher',
-    $route (to, from) {
-      this.path = this.$route.path.split('/')[2]
-    }
   }
-}
 </script>

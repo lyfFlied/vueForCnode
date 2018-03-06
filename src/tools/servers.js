@@ -6,7 +6,7 @@ import user from '../store/user'
 export class BaseApi {
   host;
 
-  constructor (host) {
+  constructor(host) {
     this.host = host
   }
 
@@ -17,11 +17,11 @@ export class BaseApi {
    * @param body
    * @returns {Promise<any>}
    */
-  connection (method = 'GET', url, body) {
+  connection(method = 'GET', url, body) {
     if (typeof body !== 'object') body = {}
+    method = method.toLocaleLowerCase()
     const {isLogin, token} = user.state.auth
     const headers = new Headers()
-    method = method.toLocaleLowerCase()
     if (isLogin) headers.set('token', token)
     headers.set('content-Type', 'application/x-www-form-urlencoded;charset=utf-8')
     if (method === 'get' || method === 'head') {
@@ -33,7 +33,7 @@ export class BaseApi {
       method,
       url,
       baseURL: this.host,
-      timeout: 30000,
+      timeout: 5000,
       data: body,
       headers,
       withCredentials: true
