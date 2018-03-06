@@ -5,6 +5,11 @@
       :data="tableData"
       :border="tableAttr.border"
       :style="{width: defaWidth}">
+      <el-table-column
+        v-if="tableAttr.noIndex"
+        type="index"
+        width="50">
+      </el-table-column>
       <el-table-column v-for="item in tableHeader"
                        :key="item.prop"
                        :prop="item.prop"
@@ -13,7 +18,7 @@
       >
       </el-table-column>
     </el-table>
-    <div v-show="pagination.pagShow">
+    <div v-if="pagination.pagShow">
       <el-pagination
         @size-change="handleSizeChange"
         @current-change="handleCurrentChange"
@@ -40,19 +45,23 @@
       /** 表格配置属性 */
       tableAttr: {
         width: {
-          type: Number,
+          type: [Number, String],
           default: '100%'
         },
         border: {
           type: Boolean,
           default: true
         },
+        noIndex: {
+          type: Boolean,
+          default: false
+        }
       },
       /** 分页属性设置 */
       pagination: {
         pagShow: {
           type: Boolean,
-          default: false
+          default: true
         },
         total: {
           type: Number,

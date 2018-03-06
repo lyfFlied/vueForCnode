@@ -41,17 +41,10 @@ export class BaseApi {
     return new Promise((resolve, reject) => {
       axios.request(_option).then(res => {
         try {
-          switch (res.status) {
-            case 401:
-              return {success: false, msg: '系统好像不认识你！', data: ''}
-            case 403:
-              return {success: false, msg: '你没有权限访问此功能！', data: ''}
-            case 400:
-              return {success: false, msg: '你没有权限访问此功能！', data: ''}
-            case 404:
-              return {success: false, msg: '网络繁忙，请稍后重试！', data: ''}
-            default:
-              return {success: true, msg: '', data: res.data}
+          if (res.status >= 200 && res.status < 300) {
+            return {success: true, msg: '', data: res.data}
+          } else {
+            return {success: false, msg: '网络繁忙，请稍后重试！', data: ''}
           }
         } catch (err) {
           return {success: false, msg: '网络繁忙，请稍后重试！', error: err}

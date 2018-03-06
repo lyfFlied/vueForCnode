@@ -24,6 +24,13 @@ export default {
       isLogin: sessionStorage.getItem(IS_LOGIN),
     }
   },
+  /** 计算属性 */
+  getters: {
+    // doneTodos: state => {
+    //   return state.todos.filter(value => value.done)
+    // }
+  },
+  /** 更改 Vuex 的 store 中的状态的唯一方法是提交 mutation */
   mutations: {
     ACCOUNT_AUTH_STATUS_CHANGED(state, data) {
       if (data.params.remember) {
@@ -48,9 +55,10 @@ export default {
       window.sessionStorage.removeItem(ACCOUNT_PWD)
     },
   },
+  /** Action 提交的是 mutation，而不是直接变更状态。Action 可以包含任意异步操作。 */
   actions: {
     accountLoginSubmit({commit}, params) {
-      LoginApi.login(params).then((res) => {
+      return LoginApi.login(params).then((res) => {
         commit(types.ACCOUNT_AUTH_STATUS_CHANGED, {...res, params})
       }).catch(() => {
         commit(types.ACCOUNT_LOGOUT_FAILURE)

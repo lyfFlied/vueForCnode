@@ -1,27 +1,12 @@
 <template>
   <div id="load-index">
     <el-row :gutter="25" style="margin-left: 0; margin-right: 0">
-      <el-col :span="10" :offset="5">
-        <h1>{{name}}</h1>
-      </el-col>
-      <el-date-picker
-        v-model="value1"
-        type="datetime"
-        placeholder="选择日期时间">
-      </el-date-picker>
-    </el-row>
-    <el-row :gutter="25" style="margin-left: 0; margin-right: 0">
       <Table
         :tableData="tableData"
         :tableHeader="tableHeader"
         :tableAttr="tableAttr"
         :pagination="pagination"
-      />
-    </el-row>
-    <el-row :gutter="25" style="margin-left: 0; margin-right: 0">
-      <Form
-        :formList="formList"
-      />
+      ></Table>
     </el-row>
   </div>
 </template>
@@ -33,25 +18,12 @@
   export default {
     data() {
       return {
-        name: '文章',
-        value1: '',
         pagination: {
           total: 30,
-          pagShow: true
+          pagShow: false
         },
-        formList: [
-          {
-            name: '姓名',
-            pass: 'username',
-            render: () => `<el-input></el-input>`,
-            elementName: 'el-input',
-            elementProps: {
-              type: 'password'
-            }
-          }
-        ],
         tableAttr: {
-          width: 700
+          noIndex: true
         },
         tableHeader: [
           {
@@ -76,7 +48,6 @@
       }
     },
     components: {
-      Form,
       Table
     },
     mounted() {
