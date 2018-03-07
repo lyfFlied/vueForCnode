@@ -16,7 +16,9 @@
     },
     data() {
       return {
+        /** 表单列表项 */
         formList: [
+          /** label：前缀     prop：字段名称   type：类型       placeholder：描述 */
           {label: '账号', prop: 'login', type: 'input', placeholder: '请输入账号'},
           {label: '金额', prop: 'number', type: 'number', placeholder: '请输入数字'},
           {
@@ -24,6 +26,7 @@
             prop: 'selectValues',
             type: 'select',
             placeholder: '选择密码',
+            /** 下啦数据 */
             data: [
               {label: '区域一', value: '1'},
               {label: '区域二', value: '2'},
@@ -53,6 +56,7 @@
           {label: '日期时间', prop: 'dateTime', type: 'time', placeholder: '请输入日期时间'},
           {label: '提交', prop: '', type: 'button'},
         ],
+        /** 结果集合 */
         ruleForm: {
           login: '',
           selectValues: '',
@@ -61,6 +65,7 @@
           dateTime: '',
           number: '',
         },
+        /** 验证规则 */
         rules: {
           login: [
             {required: true, message: '请输入登陆账户', trigger: 'blur'},

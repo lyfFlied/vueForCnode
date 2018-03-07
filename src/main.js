@@ -20,14 +20,14 @@ Vue.config.productionTip = false // 生产提示关闭
 // Vue.prototype.router = router;
 
 /** 初始定位到登陆界面，如果没有登陆则无法跳转 */
-router.beforeEach((to, from, next) => {
-  let user = !!sessionStorage.getItem('auth.isLogin')
-  if (!user && to.path !== '/login') {
-    next({path: '/login'})
-  } else {
-    next()
-  }
-})
+// router.beforeEach((to, from, next) => {
+//   let user = !!sessionStorage.getItem('auth.isLogin')
+//   if (!user && to.path !== '/login') {
+//     next({path: '/login'})
+//   } else {
+//     next()
+//   }
+// })
 
 new Vue({
   el: '#app',

@@ -6,6 +6,7 @@
         :tableHeader="tableHeader"
         :tableAttr="tableAttr"
         :pagination="pagination"
+        @tableOtherClick="tableOtherClick"
       ></Table>
     </el-row>
   </div>
@@ -23,17 +24,22 @@
           pagShow: false
         },
         tableAttr: {
-          noIndex: true
+          noIndex: true,
+          other: [
+            {name: '查看'},
+            {name: '编辑'},
+          ]
         },
         tableHeader: [
           {
             prop: 'date',
             label: '日期',
-            width: 180
+            width: 120,
+            sort: true
           }, {
             prop: 'name',
             label: '姓名',
-            width: 180
+            width: 80
           }, {
             prop: 'address',
             label: '地址',
@@ -41,8 +47,8 @@
           }, {
             prop: 'sex',
             label: '性别',
-            width: 180
-          }
+            width: 80
+          },
         ],
         tableData: [],
       }
@@ -78,6 +84,10 @@
             sex: '女',
           }]
         }, 500)
+      },
+      tableOtherClick(row, index) {
+        console.log(row);
+        console.log(index);
       }
     }
   }
