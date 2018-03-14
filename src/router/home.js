@@ -10,5 +10,9 @@ export default [
   {
     path: '/about',
     component: () => import('../view/home/about')
+  },
+  {
+    path: '/homePage',
+    component: () => import('../view/home/homePage')
   }
 ]

@@ -9,7 +9,52 @@
 
 <script>
   import Form from 'pkgs/components/form'
+  /* data: function () {
+    return {
+      articles: [],
+      messageTitle: {
+        title: [],
+        srcid: []
+      },
+      nomoralStyle: {
+        background: '#fff',
+        width: '70%',
+        fontFamily: 'Hiragino Sans GB',
+        height: '50px',
+        borderBottom: '1px solid #f0f0f0',
+        lineHeight: '50px'
+      },
+      bodyStyle: {
+        paddingLeft: '2%',
+        position: 'block',
+        color: '#333',
+        fontSize: '16px',
+        textDecoration: 'none'
+      }
+    }
+  },
+  methods: {
+    getArticles() {
+      var _this = this
+      fetch('https://cnodejs.org/api/v1/topics', {})
+        .then(function (response) {
+          return response.json()
+        })
+        .then(function (res) {
+          for (var i = 0; i < res.data.length; i++) {
+            console.log(res.data[i])
+            _this.messageTitle.title.push(res.data[i].title)
+            _this.messageTitle.srcid.push(res.data[i].id)
+          }
+        })
+    },
+    getAppointArticle(target) {
 
+    }
+  },
+  mounted() {
+    this.resultApi = this.getArticles();
+  } */
   export default {
     components: {
       Form

@@ -1,100 +1,77 @@
 <template>
   <div id="load-index">
-    <el-row :gutter="25" style="margin-left: 0; margin-right: 0">
-      <Table
-        :tableData="tableData"
-        :tableHeader="tableHeader"
-        :tableAttr="tableAttr"
-        :pagination="pagination"
-        @tableOtherClick="tableOtherClick"
-      ></Table>
-    </el-row>
+    <el-main class="mainBody">
+      <div>
+        <el-breadcrumb class="bodyHeadBar" separator-class="el-icon-arrow-righ">
+          <span @click="getAppointArticle" val = "all"> 全部</span>
+          <span @click="getAppointArticle " val = "good">精华</span>
+          <span @click="getAppointArticle " val = "share">分享</span>
+          <span @click="getAppointArticle " val = "ask">问答</span>
+          <span @click="getAppointArticle " val = "job">招聘</span>
+          <span @click="getAppointArticle " val = "dev">客户端测试</span>
+        </el-breadcrumb>
+      </div>
+      <Articles :articles="articles"></Articles>
+    </el-main>
   </div>
 </template>
 
 <script>
-  import Form from 'pkgs/components/form'
-  import Table from 'pkgs/components/table'
-
+  import {Home} from '@/tools/api'
+  import Articles from './Articles'
   export default {
+    name: 'home',
     data() {
       return {
-        pagination: {
-          total: 30,
-          pagShow: false
-        },
-        tableAttr: {
-          noIndex: true,
-          other: [
-            {name: '查看'},
-            {name: '编辑'},
-          ]
-        },
-        tableHeader: [
-          {
-            prop: 'date',
-            label: '日期',
-            width: 120,
-            sort: true
-          }, {
-            prop: 'name',
-            label: '姓名',
-            width: 80
-          }, {
-            prop: 'address',
-            label: '地址',
-            width: 280
-          }, {
-            prop: 'sex',
-            label: '性别',
-            width: 80
-          },
-        ],
-        tableData: [],
+        articles: [],
+        pageSize: 20,
+        currentTab: 'all'
+      }
+    },
+    created() {
+      this.getArtics()
+    },
+    methods: {
+      getArtics: function () {
+        let requestParam = {
+          'page': 1,
+          'limit': this.pageSize,
+        }
+        Home.getArticles(requestParam).then((res) => {
+          this.articles = res.data
+          console.log(this.articles)
+        }).catch((err) => {
+          alert('发生错误' + err)
+        })
+      },
+      getAppointArticle: function (event) {
+        this.currentTab = event.target.attributes.val.value
+        console.log('当前点击的是：' + this.currentTab)
       }
     },
     components: {
-      Table
-    },
-    mounted() {
-      this.getTableData()
-    },
-    methods: {
-      getTableData: function () {
-        setTimeout(() => {
-          this.tableData = [{
-            date: '2016-05-02',
-            name: '当然感染',
-            address: '上海市普陀区金沙江路 1518 弄',
-            sex: '男',
-          }, {
-            date: '2016-05-04',
-            name: '德国',
-            address: '上海市普陀区金沙江路 1517 弄',
-            sex: '男',
-          }, {
-            date: '2016-05-01',
-            name: '分号',
-            address: '上海市普陀区金沙江路 1519 弄',
-            sex: '男',
-          }, {
-            date: '2016-05-03',
-            name: '分号',
-            address: '上海市普陀区金沙江路 1516 弄',
-            sex: '女',
-          }]
-        }, 500)
-      },
-      tableOtherClick(row, index) {
-        console.log(row);
-        console.log(index);
-      }
+      Articles
     }
   }
 </script>
 
-<style lang="scss" scoped>
+<style scoped>
   .content-body {
     margin-top: 30px;
+  }
+  .mainBody {
+    background-color: #e1e1e1;
+  }
+  .bodyHeadBar{
+    background-color: #f6f6f6;
+    height: 40px;
+    line-height:40px;
+    padding-left: 2%;
+    width: 68%;
+  }
+  .bodyHeadBar span{
+    text-decoration: none;
+    color: #80bd01;
+    margin-left: 1%;
   }
 </style>

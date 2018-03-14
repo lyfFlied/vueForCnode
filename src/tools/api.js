@@ -20,5 +20,11 @@ export class LoginApi {
  * 首页
  */
 export class Home {
+  static getArticles(params) {
+    return server.connection('GET', 'https://cnodejs.org/api/v1/topics', params)
+  }
 
+  static publicArticles(params) {
+    return server.connection('POST', 'https://cnodejs.org/api/v1/topics', params)
+  }
 }
