@@ -3,6 +3,11 @@
     <div v-for = "article in articles" :key="article.id" class="topics">
       <Article :article="article"> </Article>
     </div>
+    <el-pagination
+      background
+      layout="prev, pager, next"
+      :total="100" style="margin-top: 10px;margin-bottom: 30px">
+    </el-pagination>
   </div>
 </template>
 

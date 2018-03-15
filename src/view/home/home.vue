@@ -11,7 +11,19 @@
           <span @click="getAppointArticle " val = "dev">客户端测试</span>
         </el-breadcrumb>
       </div>
-      <Articles :articles="articles"></Articles>
+      <Articles :articles="articles" class="bodys"></Articles>
+      <div class="login_mode">
+        <p style="font-size: 14px;
+    width: 64%;
+    text-align: center;">CNode：Node.js专业中文社区</p>
+        <div >您可以
+          <a href="#/login" class="normal_login">登录</a>
+          或
+          <a href="#/register" class="normal_register">注册</a>
+          , 也可以
+          <a href="#/login"><span class="span_info">通过GitHub登陆</span></a>
+        </div>
+      </div>
     </el-main>
   </div>
 </template>
@@ -73,5 +85,38 @@
     text-decoration: none;
     color: #80bd01;
     margin-left: 1%;
+  }
+  .login_mode{
+    float: left;
+    width: 23%;
+    height: 130px;
+    background-color: white;
+    margin-left: 23px;
+  }
+  .bodys{
+    float: left;
+  }
+  .login_mode div .normal_login,.normal_register{
+    color: #778087;
+  }
+  .login_mode div a{
+    text-decoration: none;
+  }
+  .span_info{
+    display: inline-block;
+    float: none;
+    padding: 3px 10px;
+    border: none;
+    margin: 0;
+    font-size: 14px;
+    transition: all .2s ease-in-out;
+    cursor: pointer;
+    letter-spacing: 2px;
+    box-shadow: none;
+    border-radius: 3px;
+    line-height: 2em;
+    vertical-align: middle;
+    color: #fff;
+    background-color: #5bc0de;
   }
 </style>
