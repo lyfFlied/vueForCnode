@@ -16,12 +16,12 @@
         <p style="font-size: 14px;
     width: 64%;
     text-align: center;">CNode：Node.js专业中文社区</p>
-        <div >您可以
+        <div class="login_mode_1">您可以
           <a href="#/login" class="normal_login">登录</a>
           或
           <a href="#/register" class="normal_register">注册</a>
           , 也可以
-          <a href="#/login"><span class="span_info">通过GitHub登陆</span></a>
+          <a href="#/login" class="span_info_father"><span class="span_info">通过GitHub登陆</span></a>
         </div>
       </div>
     </el-main>
@@ -92,6 +92,7 @@
     height: 130px;
     background-color: white;
     margin-left: 23px;
+    font-size: 14px;
   }
   .bodys{
     float: left;
@@ -118,5 +119,14 @@
     vertical-align: middle;
     color: #fff;
     background-color: #5bc0de;
+    margin-top: 4%;
+
+  }
+  .login_mode_1{
+    padding-left: 3%;
+    width: 100%;
+  }
+  .span_info_father{
+    display: block;
   }
 </style>
